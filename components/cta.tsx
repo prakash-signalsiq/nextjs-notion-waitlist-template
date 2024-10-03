@@ -35,7 +35,7 @@ export default function CTA() {
 
         <TextBlur
           className="text-center text-3xl font-medium tracking-tighter sm:text-8xl"
-          text="AI EM at Work"
+          text="AI agents at Work"
         />
 
         {/* <Typewriter
@@ -50,7 +50,7 @@ export default function CTA() {
 
         <TextBlur
           className="mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl"
-          text="Supercharging Engineering Productivity and Management"
+          text="Smarter Engineering, Seamless Project Management – Powered by AI Agents"
         />
       </motion.div>
 

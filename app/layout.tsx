@@ -1,15 +1,17 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner";
-import { Analytics } from "@vercel/analytics/react";
+import './globals.css';
 
+import { Figtree } from 'next/font/google';
+
+import { Toaster } from '@/components/ui/sonner';
+import { Analytics } from '@vercel/analytics/react';
+
+import type { Metadata } from "next";
 const FigtreeFont = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next.js + Notion — Waitlist Template",
+  title: "SignalsIQ - Waitlist",
   description:
-    "A simple Next.js waitlist template with Notion as CMS and Resend to send emails created with React Email and Upstash Redis for rate limiting. Deployed on Vercel.",
+    "Waitlist for SignalsIQ AI engineering productivity tool. Join the waitlist to get early access of the product and recieve updates on the progress!",
 };
 
 export default function RootLayout({
@@ -25,7 +27,7 @@ export default function RootLayout({
       <meta property="og:image:height" content="832" />
       <meta
         property="og:site_name"
-        content="Next.js + Notion — Waitlist Template"
+        content="SignalsIQ - Waitlist"
       />
       <meta
         property="og:url"
