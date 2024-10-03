@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { ChangeEvent } from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaXTwitter } from "react-icons/fa6";
-import { Input } from "@/components/ui/input";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { EnhancedButton } from "@/components/ui/enhanced-btn";
-import { containerVariants, itemVariants } from "@/lib/animation-variants";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ChangeEvent } from 'react';
+import { FaArrowRightLong, FaGithub, FaXTwitter } from 'react-icons/fa6';
+
+import { EnhancedButton } from '@/components/ui/enhanced-btn';
+import { Input } from '@/components/ui/input';
+import { containerVariants, itemVariants } from '@/lib/animation-variants';
 
 interface FormProps {
   name: string;
@@ -57,7 +57,7 @@ export default function Form({
           {loading ? "Loading..." : "Join Waitlist!"}
         </EnhancedButton>
       </motion.div>
-      <motion.div
+      {/* <motion.div
         variants={itemVariants}
         className="mt-4 flex w-full items-center justify-center gap-1 text-muted-foreground">
         <p>For any queries, reach out at </p>
@@ -74,7 +74,7 @@ export default function Form({
           target="_blank">
           <FaGithub className="ml-0.5 h-5 w-5 transition-all duration-200 ease-linear hover:text-yellow-200" />
         </Link>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }

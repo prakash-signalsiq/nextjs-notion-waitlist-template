@@ -1,16 +1,18 @@
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/animation-variants";
-import TextBlur from "./ui/text-blur";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { containerVariants, itemVariants } from '@/lib/animation-variants';
+
+import TextBlur from './ui/text-blur';
 
 const logos = [
-  { href: "https://nextjs.org", src: "/nextjs.svg", alt: "Next.js Logo" },
-  { href: "https://notion.so", src: "/notion.svg", alt: "Notion Logo" },
-  { href: "https://resend.com", src: "/resend.svg", alt: "Resend Logo" },
-  { href: "https://upstash.com", src: "/upstash.svg", alt: "Upstash Logo" },
-  { href: "https://ui.shadcn.com", src: "/shadcn.svg", alt: "shadcn Logo" },
-  { href: "https://vercel.com", src: "/vercel.svg", alt: "Vercel Logo" },
+  { href: "https://signalsiq.ai", src: "/signalsiq.svg", alt: "SignalsIQ Logo" },
+  // { href: "https://notion.so", src: "/notion.svg", alt: "Notion Logo" },
+  // { href: "https://resend.com", src: "/resend.svg", alt: "Resend Logo" },
+  // { href: "https://upstash.com", src: "/upstash.svg", alt: "Upstash Logo" },
+  // { href: "https://ui.shadcn.com", src: "/shadcn.svg", alt: "shadcn Logo" },
+  // { href: "https://vercel.com", src: "/vercel.svg", alt: "Vercel Logo" },
 ];
 
 export default function Logos() {
@@ -27,17 +29,17 @@ export default function Logos() {
         />
       </motion.div>
 
-      <motion.div variants={itemVariants}>
+      {/* <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-base text-zinc-300 sm:text-lg"
           text="Simple and powerful tools that help you build faster"
           duration={0.8}
         />
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         variants={itemVariants}
-        className="mt-4 grid w-full grid-cols-2 items-center justify-center gap-4 md:mt-6 md:grid-cols-3 md:gap-6">
+        className="mt-4 grid w-full grid-cols-2 items-center justify-center gap-4 md:mt-1 md:grid-cols-1 md:gap-6">
         {logos.map((logo, index) => (
           <Link
             key={index}

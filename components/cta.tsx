@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
-import TextBlur from "@/components/ui/text-blur";
-import AnimatedShinyText from "@/components/ui/shimmer-text";
-import { containerVariants, itemVariants } from "@/lib/animation-variants";
+'use client'
+import { motion } from 'framer-motion';
+import Typewriter from 'typewriter-effect';
+
+import AnimatedShinyText from '@/components/ui/shimmer-text';
+import TextBlur from '@/components/ui/text-blur';
+import { containerVariants, itemVariants } from '@/lib/animation-variants';
 
 export default function CTA() {
   return (
@@ -28,9 +31,26 @@ export default function CTA() {
       />
 
       <motion.div variants={itemVariants}>
+
+
         <TextBlur
-          className="text-center text-3xl font-medium tracking-tighter sm:text-5xl"
-          text="A Simple Next.js Waitlist Template with Notion as CMS"
+          className="text-center text-3xl font-medium tracking-tighter sm:text-8xl"
+          text="AI EM at Work"
+        />
+
+        {/* <Typewriter
+          options={{
+            delay: 10,
+            strings: ['No', 'Engineering metrics at finger tips', '', '', 'Tech Enthusiast'],
+            autoStart: true,
+            loop: true,
+            wrapperClassName: '"mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl',
+            cursorClassName: '"mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl'
+          }} /> */}
+
+        <TextBlur
+          className="mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl"
+          text="Supercharging Engineering Productivity and Management"
         />
       </motion.div>
 
