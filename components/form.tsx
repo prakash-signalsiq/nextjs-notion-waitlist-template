@@ -10,8 +10,10 @@ import { containerVariants, itemVariants } from '@/lib/animation-variants';
 interface FormProps {
   name: string;
   email: string;
+  experience: string;
   handleNameChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleExperienceChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => void;
   loading: boolean;
 }
@@ -19,8 +21,10 @@ interface FormProps {
 export default function Form({
   name,
   email,
+  experience,
   handleNameChange,
   handleEmailChange,
+  handleExperienceChange,
   handleSubmit,
   loading,
 }: FormProps) {
@@ -41,9 +45,17 @@ export default function Form({
       <motion.div variants={itemVariants}>
         <Input
           type="email"
-          placeholder="Your Email Address"
+          placeholder="Your Work Email Address"
           value={email}
           onChange={handleEmailChange}
+        />
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Input
+          type="text"
+          placeholder="Your Total Work Experience"
+          value={experience}
+          onChange={handleExperienceChange}
         />
       </motion.div>
       <motion.div variants={itemVariants}>

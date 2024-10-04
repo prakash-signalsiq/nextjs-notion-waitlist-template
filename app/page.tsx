@@ -13,11 +13,20 @@ import Particles from '@/components/ui/particles';
 export default function Home() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [experience, setExperience] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const personalEmailDomains = [
+    "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com"
+  ];
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
+
+  const handleExperienceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setExperience(event.target.value);
+  }
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -29,6 +38,7 @@ export default function Home() {
   };
 
   const handleSubmit = async () => {
+
     if (!name || !email) {
       toast.error("Please fill in all fields 😠");
       return;
@@ -38,7 +48,11 @@ export default function Home() {
       toast.error("Please enter a valid email address 😠");
       return;
     }
-
+    const emailDomain = email.split('@')[1];
+    if (personalEmailDomains.includes(emailDomain)) {
+      toast.error("Please enter your work email address");
+      return;
+    }
     setLoading(true);
 
     const promise = new Promise(async (resolve, reject) => {
@@ -68,7 +82,7 @@ export default function Home() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email }),
+          body: JSON.stringify({ name, email, experience }),
         });
 
         if (!notionResponse.ok) {
@@ -119,6 +133,8 @@ export default function Home() {
         <Form
           name={name}
           email={email}
+          experience={experience}
+          handleExperienceChange={handleExperienceChange}
           handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
           handleSubmit={handleSubmit}

@@ -1,5 +1,6 @@
-import { Client } from "@notionhq/client";
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
+
+import { Client } from '@notionhq/client';
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -26,6 +27,17 @@ export async function POST(request: Request) {
               type: "text",
               text: {
                 content: body?.name,
+              },
+            },
+          ],
+        },
+        "Experience": {
+          type: "rich_text",
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: body?.experience,
               },
             },
           ],
