@@ -15,6 +15,7 @@ export default function Home() {
   const [email, setEmail] = useState<string>("");
   const [experience, setExperience] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [company, setCompany] = useState<string>("");
 
   const personalEmailDomains = [
     "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com"
@@ -32,6 +33,10 @@ export default function Home() {
     setName(event.target.value);
   };
 
+  const handleCompanyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCompany(event.target.value);
+  }
+
   const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -48,33 +53,33 @@ export default function Home() {
       toast.error("Please enter a valid email address 😠");
       return;
     }
-    const emailDomain = email.split('@')[1];
-    if (personalEmailDomains.includes(emailDomain)) {
-      toast.error("Please enter your work email address");
-      return;
-    }
+    // const emailDomain = email.split('@')[1];
+    // if (personalEmailDomains.includes(emailDomain)) {
+    //   toast.error("Please enter your work email address");
+    //   return;
+    // }
     setLoading(true);
 
     const promise = new Promise(async (resolve, reject) => {
       try {
         // First, attempt to send the email
-        const mailResponse = await fetch("/api/mail", {
-          cache: "no-store",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ firstname: name, email }),
-        });
+        // const mailResponse = await fetch("/api/mail", {
+        //   cache: "no-store",
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ firstname: name, email }),
+        // });
 
-        if (!mailResponse.ok) {
-          if (mailResponse.status === 429) {
-            reject("Rate limited");
-          } else {
-            reject("Email sending failed");
-          }
-          return; // Exit the promise early if mail sending fails
-        }
+        // if (!mailResponse.ok) {
+        //   if (mailResponse.status === 429) {
+        //     reject("Rate limited");
+        //   } else {
+        //     reject("Email sending failed");
+        //   }
+        //   return; // Exit the promise early if mail sending fails
+        // }
 
         // If email sending is successful, proceed to insert into Notion
         const notionResponse = await fetch("/api/notion", {
@@ -82,7 +87,7 @@ export default function Home() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email, experience }),
+          body: JSON.stringify({ name, email, experience, company }),
         });
 
         if (!notionResponse.ok) {
@@ -134,9 +139,11 @@ export default function Home() {
           name={name}
           email={email}
           experience={experience}
+          company={company}
           handleExperienceChange={handleExperienceChange}
           handleNameChange={handleNameChange}
           handleEmailChange={handleEmailChange}
+          handleCompanyChange={handleCompanyChange}
           handleSubmit={handleSubmit}
           loading={loading}
         />

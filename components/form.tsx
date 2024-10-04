@@ -11,9 +11,11 @@ interface FormProps {
   name: string;
   email: string;
   experience: string;
+  company: string;
   handleNameChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleExperienceChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleCompanyChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => void;
   loading: boolean;
 }
@@ -22,9 +24,11 @@ export default function Form({
   name,
   email,
   experience,
+  company,
   handleNameChange,
   handleEmailChange,
   handleExperienceChange,
+  handleCompanyChange,
   handleSubmit,
   loading,
 }: FormProps) {
@@ -45,7 +49,7 @@ export default function Form({
       <motion.div variants={itemVariants}>
         <Input
           type="email"
-          placeholder="Your Work Email Address"
+          placeholder="Your Email Address"
           value={email}
           onChange={handleEmailChange}
         />
@@ -53,7 +57,15 @@ export default function Form({
       <motion.div variants={itemVariants}>
         <Input
           type="text"
-          placeholder="Your Total Work Experience"
+          placeholder="Company Name"
+          value={company}
+          onChange={handleCompanyChange}
+        />
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <Input
+          type="text"
+          placeholder="(Optional) Your Total Work Experience"
           value={experience}
           onChange={handleExperienceChange}
         />
