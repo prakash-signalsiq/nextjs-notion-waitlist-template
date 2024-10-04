@@ -9,7 +9,7 @@ import { containerVariants, itemVariants } from '@/lib/animation-variants';
 export default function CTA() {
   return (
     <motion.div
-      className="flex w-full max-w-2xl flex-col gap-2"
+      className="flex w-full max-w-6xl flex-col gap-2"
       variants={containerVariants}
       initial="hidden"
       animate="visible">
@@ -34,33 +34,28 @@ export default function CTA() {
 
 
         <TextBlur
-          className="text-center text-3xl font-medium tracking-tighter sm:text-8xl"
-          text="AI agents at Work"
+          className="text-center text-xl font-medium tracking-tighter sm:text-6xl"
+          text="AI co-pilot for Engneering Managers"
         />
-
-        {/* <Typewriter
-          options={{
-            delay: 10,
-            strings: ['No', 'Engineering metrics at finger tips', '', '', 'Tech Enthusiast'],
-            autoStart: true,
-            loop: true,
-            wrapperClassName: '"mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl',
-            cursorClassName: '"mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl'
-          }} /> */}
-
-        <TextBlur
-          className="mt-3 text-center text-xl font-medium tracking-tighter sm:text-3xl"
-          text="Smarter Engineering, Seamless Project Management – Powered by AI Agents"
-        />
+        {/* <TextBlur
+          className="text-center text-xl font-medium tracking-tighter sm:text-6xl"
+          text="Engineering Managers"
+        /> */}
       </motion.div>
 
       <motion.div variants={itemVariants}>
         <TextBlur
-          className="mx-auto max-w-[27rem] pt-1.5 text-center text-base text-zinc-300 sm:text-lg"
-          text="Join the waitlist to get early access of the product and recieve updates on the progress!"
+          className="mx-auto pt-1.5 text-center text-base text-zinc-500 sm:text-2xl"
+          text="Engineering managers are often burdened with tasks that pull them away from high-impact initiatives. Now, imagine having a co-pilot to manage scrums, track projects, address ad-hoc queries by learning from your expertise, and handle daily operations—allowing you to concentrate on delivering results."
           duration={0.8}
         />
       </motion.div>
+
+      <TextBlur
+        className="mx-auto max-w-[27rem] mt-10 text-center text-xl font-medium tracking-tighter sm:text-3xl"
+        text="Reserve Your Spot Now !"
+      />
+
     </motion.div>
   );
 }
