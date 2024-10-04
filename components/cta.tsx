@@ -35,7 +35,7 @@ export default function CTA() {
 
         <TextBlur
           className="text-center text-xl font-medium tracking-tighter sm:text-6xl"
-          text="AI co-pilot for Engneering Managers"
+          text="AI co-pilot for Engineering Managers"
         />
         {/* <TextBlur
           className="text-center text-xl font-medium tracking-tighter sm:text-6xl"
