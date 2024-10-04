@@ -45,12 +45,12 @@ export default function Home() {
   const handleSubmit = async () => {
 
     if (!name || !email) {
-      toast.error("Please fill in all fields 😠");
+      toast.error("Please fill in all fields");
       return;
     }
 
     if (!isValidEmail(email)) {
-      toast.error("Please enter a valid email address 😠");
+      toast.error("Please enter a valid email address");
       return;
     }
     // const emailDomain = email.split('@')[1];
